@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('https://static.vecteezy.com/system/resources/previews/007/973/103/non_2x/orange-and-black-stripes-line-abstract-background-free-vector.jpg');
+    background-image: url('https://w0.peakpx.com/wallpaper/692/748/HD-wallpaper-yellow-red-orange-2-color-abstract-backdrop-background-black-bright-clean-colorful-creative-dark-design-dynamic-geometric-geometrical-geometry-graphic-grey-material-minimal-modern.jpg');
     background-size: cover;
     background-attachment: fixed;
 }
@@ -23,21 +23,35 @@ body, html {
     margin: 0 auto; /* Center the gallery */
 }
 
-.thumbnail {
-    background-color: #f4f3f2;
-    color: #001f3f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px; /* Set a minimum height for all thumbnails */
-    width: auto; /* Set width to auto to maintain portrait mode */
-    max-height: 500px; /* Limit the maximum height for portrait mode */
-    border: 3px solid white; /* Add a white border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), /* Add a subtle shadow */
-                0 6px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Ensure no content spills out */
-}
-
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05); /* Adjust the scale value to control the intensity of the pulse */
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .thumbnail {
+      background-color: #f4f3f2;
+      color: #001f3f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px; /* Set a minimum height for all thumbnails */
+      width: auto; /* Set width to auto to maintain portrait mode */
+      max-height: 500px; /* Limit the maximum height for portrait mode */
+      border: 3px solid white; /* Add a white border */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), /* Add a subtle shadow */
+                  0 6px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden; /* Ensure no content spills out */
+      animation: pulse 2s infinite; /* Apply the animation to the thumbnail */
+      transition: transform 0.2s ease-in-out; /* Smooth out the scaling animation */
+  }
+  
 
 /* Different heights and spans for each thumbnail */
 .thumbnail:nth-child(1),
