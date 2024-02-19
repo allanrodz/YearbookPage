@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/007/973/103/non_2x/orange-and-black-stripes-line-abstract-background-free-vector.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Base styles for gallery and thumbnails */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+    grid-template-rows: auto auto auto auto auto auto auto; /* Allows rows to size based on content, adjust number of 'auto' for more rows */
+    grid-gap: 1em; /* Space between thumbnails */
+    max-width: 600px; /* Adjust based on your preference */
+    margin: 0 auto; /* Center the gallery */
+}
+
+.thumbnail {
+    background-color: #f4f3f2;
+    color: #001f3f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Set a minimum height for all thumbnails */
+    width: auto; /* Set width to auto to maintain portrait mode */
+    max-height: 500px; /* Limit the maximum height for portrait mode */
+    border: 3px solid white; /* Add a white border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), /* Add a subtle shadow */
+                0 6px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensure no content spills out */
+}
+
+
+/* Different heights and spans for each thumbnail */
+.thumbnail:nth-child(1),
+.thumbnail:nth-child(6),
+.thumbnail:nth-child(14) {
+  grid-row: span 3; /* These thumbnails span 3 rows */
+  height: auto; /* Reset height for thumbnails that span 3 rows */
+  max-height: none; /* Reset max height for thumbnails that span 3 rows */
+}
+
+.thumbnail:nth-child(2),
+.thumbnail:nth-child(4),
+.thumbnail:nth-child(8),
+.thumbnail:nth-child(10),
+.thumbnail:nth-child(12) {
+  grid-row: span 2; /* These thumbnails span 2 rows */
+  height: 350px; /* Set height for thumbnails that span 2 rows */
+  max-height: none; /* Reset max height for thumbnails that span 2 rows */
+}
+
+.thumbnail img {
+    width: 100%; /* Ensure the image spans the full width of its container */
+    height: 100%; /* Ensure the image spans the full height of its container */
+    object-fit: cover; /* Cover the container with the image without stretching */
+    object-position: center; /* Center the image within the container */
+    border-radius: 10px; /* Optional: add border radius for rounded corners */
+}
+
+
+#yearbookFrame {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    border: 2px solid rgba(0, 0, 0, 0.5); /* Add a border */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Add a box shadow */
+    border-radius: 10px; /* Add border radius for rounded corners */
+}
+
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+iframe {
+    border: none;
+}
