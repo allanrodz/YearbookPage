@@ -18,10 +18,73 @@ document.querySelectorAll('.thumbnail').forEach(item => {
     });
 });
 
-
 document.getElementById('overlay').addEventListener('click', function(event) {
     if (event.target === this) {
         this.style.display = 'none';
     }
 });
 
+function toggleFullscreen() {
+    const iframe = document.getElementById('yearbookFrame');
+    const button = document.getElementById('fullscreenButton');
+    
+    if (!document.fullscreenElement) {
+        // Enter fullscreen
+        if (iframe.requestFullscreen) {
+            iframe.requestFullscreen();
+        } else if (iframe.mozRequestFullScreen) { // Firefox
+            iframe.mozRequestFullScreen();
+        } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+            iframe.webkitRequestFullscreen();
+        } else if (iframe.msRequestFullscreen) { // IE/Edge
+            iframe.msRequestFullscreen();
+        }
+        button.textContent = "Exit Fullscreen";
+    } else {
+        // Exit fullscreen
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { // Firefox
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Chrome, Safari, and Opera
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+            document.msExitFullscreen();
+        }
+        button.textContent = "View Fullscreen";
+    }
+}
+
+// Listen for fullscreen change events to update button text accordingly
+document.addEventListener('fullscreenchange', () => {
+    const button = document.getElementById('fullscreenButton');
+    if (!document.fullscreenElement) {
+        button.textContent = "View Fullscreen";
+    } else {
+        button.textContent = "Exit Fullscreen";
+    }
+});
+document.addEventListener('webkitfullscreenchange', () => {
+    const button = document.getElementById('fullscreenButton');
+    if (!document.webkitFullscreenElement) {
+        button.textContent = "View Fullscreen";
+    } else {
+        button.textContent = "Exit Fullscreen";
+    }
+});
+document.addEventListener('mozfullscreenchange', () => {
+    const button = document.getElementById('fullscreenButton');
+    if (!document.mozFullScreenElement) {
+        button.textContent = "View Fullscreen";
+    } else {
+        button.textContent = "Exit Fullscreen";
+    }
+});
+document.addEventListener('msfullscreenchange', () => {
+    const button = document.getElementById('fullscreenButton');
+    if (!document.msFullscreenElement) {
+        button.textContent = "View Fullscreen";
+    } else {
+        button.textContent = "Exit Fullscreen";
+    }
+});
